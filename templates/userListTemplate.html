@@ -1,0 +1,28 @@
+
+<!--<h5>helloee</h5>-->
+ <table class="table striped">
+<thead>
+  <tr>
+  <th> id</th>
+  <th>login </th>
+  <th>type </th>
+  <th> site_admin</th>
+
+ </tr>
+</thead>
+<tbody>
+<% _.each(users,function(user){%>
+<tr>
+  <td><%= user.get('id') %> </td>
+  <td><%= user.get('login') %> </td>
+  <td><%= user.get('type') %> </td>
+  <td> <%= user.get('site_admin') %></td>
+  <td><a href="#/repo/<%=user.get('id') %>" class="btn btn-primary"> View Repo</a></td>
+  
+
+ </tr>
+<% }); %>
+</tbody>
+
+
+</table>
