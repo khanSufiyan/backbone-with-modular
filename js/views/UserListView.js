@@ -1,32 +1,19 @@
-define([
-  'jquery',
-  'underscore',
-  'backbone',
-  'handlebars',
-  'collections/UserListCollection',
-  'text!templates/userListTemplate.html'
-
-  
-], function($, _, Backbone,Handelbars,Users,userListTemplate){
-  
-  var UserList = Backbone.View.extend({
+var UserList = Backbone.View.extend({
       el:'.page',
-       render:function(){
+        render:function(){
         var that = this;
           var users = new Users();
           users.fetch({
           success:function(users){
-          
-          var template = _.template(userListTemplate,{users:users.models});
-          that.$el.html(template);
-         
 
+        var source = $('#user-list-template').html();
+        var template = Handlebars.compile(source);
+        var html = template(users.toJSON());
+          
+          /*var template = _.template($('#user-list-template').html(),{users:users.models});*/
+          
+          that.$el.html(html);
           }
         });
         }
-      })
-      
-
-  return UserList;
-
-});
+      });

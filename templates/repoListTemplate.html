@@ -1,24 +1,25 @@
 
-<!--<h5>helloee</h5>-->
- <table class="table striped">
+<script type="text/x-handlebars-template" id="repo-list-template">
+<table class="table striped">
 <thead>
   <tr>
-  <th> id</th>
-  <th>name </th>
-  <th>full name</th>
-  <th>owner type</th>
+	<th> id</th>
+	<th>name </th>
+	<th>full name</th>  
+	<th>owner type</th>
 
  </tr>
 </thead>
 <tbody>
-<% _.each(repo,function(repos){%>
+{{#each []}}
 <tr>
-  <td><%= repos.get('id') %> </td>
-  <td><%= repos.get('name') %> </td>
-  <td><%= repos.get('full_name') %> </td>
+	<td>{{this.id}}</td>
+	<td>{{this.name}} </td>
+	<td>{{this.full_name}}</td>
  </tr>
-<% }); %>
+{{/each}}
 </tbody>
 
 
 </table>
+</script>

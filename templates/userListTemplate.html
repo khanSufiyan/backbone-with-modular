@@ -1,6 +1,6 @@
 
-<!--<h5>helloee</h5>-->
- <table class="table striped">
+<script type="text/x-handlebars-template" id="user-list-template">
+<table class="table striped">
 <thead>
   <tr>
   <th> id</th>
@@ -11,18 +11,19 @@
  </tr>
 </thead>
 <tbody>
-<% _.each(users,function(user){%>
+{{#each []}}
 <tr>
-  <td><%= user.get('id') %> </td>
-  <td><%= user.get('login') %> </td>
-  <td><%= user.get('type') %> </td>
-  <td> <%= user.get('site_admin') %></td>
-  <td><a href="#/repo/<%=user.get('id') %>" class="btn btn-primary"> View Repo</a></td>
+  <td>{{this.id}}</td>
+  <td>{{this.login}} </td>
+  <td>{{this.type}}</td>
+  <td> {{this.site_admin}}</td>
+  <td><a href="#/repo/{{this.id}}" class="btn btn-primary"> View Repo</a></td>
   
 
  </tr>
-<% }); %>
+{{/each}}
 </tbody>
 
 
 </table>
+</script>

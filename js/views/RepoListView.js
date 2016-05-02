@@ -1,14 +1,4 @@
-define([
-  'jquery',
-  'underscore',
-  'backbone',
-  'collections/RepoListCollection',
-  'text!templates/repoListTemplate.html'
-
-  
-], function($, _, Backbone,Repos,repoListTemplate){
-  
-  var ViewRepo = Backbone.View.extend({
+var ViewRepo = Backbone.View.extend({
       el:'.page',
       
         render:function(id){
@@ -16,8 +6,13 @@ define([
           var repo = new Repos([], { id: id });
           repo.fetch({
           success:function(repo){
-           var template = _.template(repoListTemplate,{repo:repo.models});
-          that.$el.html(template);
+
+                  var source = $('#repo-list-template').html();
+          var template = Handlebars.compile(source);
+          var html = template(repo.toJSON());
+
+         /*  var template = _.template($('#repo-list-template').html(),{repo:repo.models});*/
+          that.$el.html(html);
         
             }
         
@@ -26,8 +21,3 @@ define([
        
        }
       }); 
-      
-
-  return ViewRepo;
-
-});
