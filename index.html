@@ -4,14 +4,16 @@
   <meta charset="utf-8">
   <title>hello-backbonejs</title>
   <link rel="stylesheet" href ="css/bootstrap.min.css">
+   <link rel="stylesheet" href ="css/style.css">
 </head>
 <body>
 
 <div class ="container">
   <h1>User Manager</h1>
+  Click to view Repositories!!
    <hr />
    <div class="page">
-  
+  Loading......
    </div>
 </div>
 
@@ -28,12 +30,13 @@
 </thead>
 <tbody>
 {{#each []}}
-<tr>
+<tr id="viewRepo" data-id="{{this.id}}">
+ 
   <td>{{this.id}}</td>
   <td>{{this.login}} </td>
   <td>{{this.type}}</td>
   <td> {{this.site_admin}}</td>
-  <td><a href="#/repo/{{this.id}}" class="btn btn-primary"> View Repo</a></td>
+ <!--  <td><a href="#/repo/{{this.id}}" class="btn btn-primary"> View Repo</a></td> -->
   
 
  </tr>
@@ -50,7 +53,7 @@
   <th> id</th>
   <th>name </th>
   <th>full name</th>  
-  <th>owner type</th>
+
 
  </tr>
 </thead>
